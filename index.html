@@ -1,0 +1,185 @@
+<iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#config=https://raw.githubusercontent.com/he01409918/WebView/main/data.json"></iframe>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tang_Web</title>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+
+    <style>
+        #panorama {
+            width: 10px;
+            height: 10px;
+        }
+    </style>
+
+    <style>
+        #controls {
+            position: absolute;
+            bottom: 0;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            padding-bottom: 3px;
+        }
+
+        .ctrl {
+            padding: 8px 5px;
+            width: 30px;
+            text-align: center;
+            background: rgba(200, 200, 200, 0.8);
+            display: inline-block;
+            cursor: pointer;
+        }
+
+            .ctrl:hover {
+                background: rgb(255 216 0);
+            }
+    </style>
+
+    <style>
+        .custom-hotspot {
+            height: 20px;
+            width: 20px;
+            background: #ffd800;
+        }
+
+        div.custom-tooltip span {
+            visibility: hidden;
+            position: absolute;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            max-width: 200px;
+            padding: 5px 10px;
+            margin-left: -220px;
+            cursor: default;
+        }
+
+        div.custom-tooltip:hover span {
+            visibility: visible;
+        }
+
+            div.custom-tooltip:hover span:after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-width: 10px;
+                border-style: solid;
+                border-color: #fff transparent transparent transparent;
+                bottom: -20px;
+                left: -10px;
+                margin: 0 50%;
+            }
+    </style>
+
+</head>
+<body>
+    <div id="panorama">
+        <div id="controls">
+            <div class="ctrl" id="pan-up">&#9650;</div>
+            <div class="ctrl" id="pan-down">&#9660;</div>
+            <div class="ctrl" id="pan-left">&#9664;</div>
+            <div class="ctrl" id="pan-right">&#9654;</div>
+            <div class="ctrl" id="zoom-in">&plus;</div>
+            <div class="ctrl" id="zoom-out">&minus;</div>
+            <div class="ctrl" id="fullscreen">&#x2922;</div>
+        </div>
+    </div>
+    <script>
+        viewer = pannellum.viewer('panorama', {
+            "default": {
+                "firstScene": "First",
+                "title": "Tang_Web360_Demo",
+                "author": "Tang",
+                "sceneFadeDuration": 1500,
+                "autoLoad": true,
+                "autoRotate": 0,
+                "compass": true,
+                "northOffset": 0,
+                "showControls": false
+            },
+            "scenes": {
+                "First": {
+                    "title": "大廳",
+                    "type": "equirectangular",
+                    "panorama": "https://i.ibb.co/HDFRDVg/1F-1-1.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -5,
+                            "yaw": 0,
+                            "type": "scene",
+                            "text": "館內",
+                            "createTooltipArgs": "館內",
+                            "sceneId": "Second"
+                        },
+
+                        {
+                            "pitch": -10,
+                            "yaw": 180,
+                            "type": "info",
+                            "text": "校園",
+                            "URL": "https://google.com.tw/"
+                        }
+                    ]
+                },
+
+                "Second": {
+                    "title": "館內",
+                    "hfov": 110,
+                    "yaw": 5,
+                    "type": "equirectangular",
+                    "panorama": "https://i.ibb.co/drLjPQm/B1-1.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -0.6,
+                            "yaw": 37.1,
+                            "type": "scene",
+                            "text": "大廳",
+                            "sceneId": "First",
+                            "targetYaw": 0,
+                            "targetPitch": 0
+                        }
+                    ]
+                }
+            }
+        });
+        function hotspot(hotSpotDiv, args) {
+            hotSpotDiv.classList.add('custom-tooltip');
+            var span = document.createElement('span');
+            span.innerHTML = args;
+            hotSpotDiv.appendChild(span);
+            span.style.width = span.scrollWidth - 20 + 'px';
+            span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
+            span.style.marginTop = -span.scrollHeight - 12 + 'px';
+        }
+    </script>
+
+    <script>
+        document.getElementById('pan-up').addEventListener('click', function (e) {
+            viewer.setPitch(viewer.getPitch() + 10);
+        });
+        document.getElementById('pan-down').addEventListener('click', function (e) {
+            viewer.setPitch(viewer.getPitch() - 10);
+        });
+        document.getElementById('pan-left').addEventListener('click', function (e) {
+            viewer.setYaw(viewer.getYaw() - 10);
+        });
+        document.getElementById('pan-right').addEventListener('click', function (e) {
+            viewer.setYaw(viewer.getYaw() + 10);
+        });
+        document.getElementById('zoom-in').addEventListener('click', function (e) {
+            viewer.setHfov(viewer.getHfov() - 10);
+        });
+        document.getElementById('zoom-out').addEventListener('click', function (e) {
+            viewer.setHfov(viewer.getHfov() + 10);
+        });
+        document.getElementById('fullscreen').addEventListener('click', function (e) {
+            viewer.toggleFullscreen();
+        });</script>
+
+</body>
+</html>
