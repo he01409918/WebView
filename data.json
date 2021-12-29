@@ -1,14 +1,13 @@
 {
             "default": {
                 "firstScene": "First",
-                "title": "Tang_Web360_Demo",
                 "author": "Tang",
                 "sceneFadeDuration": 1500,
                 "autoLoad": true,
                 "autoRotate": 0,
                 "compass": true,
                 "northOffset": 0,
-                "showControls": false
+                "showControls": true
             },
             "scenes": {
                 "First": {
