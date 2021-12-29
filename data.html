@@ -1,5 +1,5 @@
-{
-            "default": {
+{   
+    "default": {
                 "firstScene": "First",
                 "title": "Tang_Web360_Demo",
                 "author": "Tang",
@@ -9,11 +9,17 @@
                 "compass": true,
                 "northOffset": 0,
                 "showControls": false
-            },
-            "scenes": {
-                "First": {
-                    "title": "大廳",
-                    /*"pitch": 2.3,
+    },
+    
+    "scenes": {
+        "First": {
+            "title": "大廳",
+            "hfov": 110,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "../images/from-tree.jpg",
+            /*"pitch": 2.3,
                     "yaw": -135.4,
                     "hfov": 120,*/
                     "type": "equirectangular",
@@ -40,24 +46,23 @@
                     ]
                 },
 
-                "Second": {
-                    "title": "館內",
-                    "hfov": 110,
-                    "yaw": 5,
-                    "type": "equirectangular",
-                    "panorama": "https://i.ibb.co/drLjPQm/B1-1.jpg",
-                    "hotSpots": [
-                        {
-                            "pitch": -0.6,
-                            "yaw": 37.1,
-                            "type": "scene",
-                            "text": "大廳",
-                            "sceneId": "First",
-                            "targetYaw": 0,
-                            "targetPitch": 0
-                        }
-                    ]
+        "Second": {
+            "title": "館內",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "https://i.ibb.co/drLjPQm/B1-1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -0.6,
+                    "yaw": 37.1,
+                    "type": "scene",
+                    "text": "大廳",
+                    "sceneId": "First",
+                    "targetYaw": 0,
+                    "targetPitch": 0
                 }
-            }
+            ]
         }
+    }
 }
