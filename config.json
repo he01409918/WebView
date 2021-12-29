@@ -7,7 +7,7 @@
                 "autoRotate": 0,
                 "compass": true,
                 "northOffset": 0,
-                "showControls": true
+                "showControls": false
             },
             "scenes": {
                 "First": {
