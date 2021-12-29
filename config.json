@@ -1,12 +1,18 @@
 {  
-    "default": {ffffffff
-        "firstScene": "circle",
-        "author": "Matthew Petroff",
-        "sceneFadeDuration": 1000
+    "default": {
+                "firstScene": "First",
+                "title": "Tang_Web360_Demo",
+                "author": "Tang",
+                "sceneFadeDuration": 1500,
+                "autoLoad": true,
+                "autoRotate": 0,
+                "compass": true,
+                "northOffset": 0,
+                "showControls": false
     },
     
     "scenes": {
-        "circle": {
+        "First": {
             "title": "Mason Circle",
             "hfov": 110,
             "pitch": -3,
@@ -19,12 +25,12 @@
                     "yaw": 132.9,
                     "type": "scene",
                     "text": "Spring House or Dairy",
-                    "sceneId": "house"
+                    "sceneId": "Second"
                 }
             ]
         },
 
-        "house": {
+        "Second": {
             "title": "Spring House or Dairy",
             "hfov": 110,
             "yaw": 5,
@@ -36,7 +42,7 @@
                     "yaw": 37.1,
                     "type": "scene",
                     "text": "Mason Circle",
-                    "sceneId": "circle",
+                    "sceneId": "First",
                     "targetYaw": -23,
                     "targetPitch": 2
                 }
