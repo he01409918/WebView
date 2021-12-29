@@ -1,4 +1,4 @@
-<iframe width="1000" height="800" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#config=https://raw.githubusercontent.com/he01409918/WebView/main/data.json&amp;autoLoad=true"></iframe>
+<iframe width="0" height="0" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#config=https://raw.githubusercontent.com/he01409918/WebView/main/data.json&amp;autoLoad=true"></iframe>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +7,12 @@
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
 
-    <style>
+    <!--<style>
         #panorama {
             width: 0vw;
             height: 0vh;
         }
-    </style>
+    </style>-->
 
     <style>
         #controls {
@@ -79,7 +79,7 @@
 </head>
 <body>
     <div id="panorama">
-        <div id="controls">
+        <!--<div id="controls">
             <div class="ctrl" id="pan-up">&#9650;</div>
             <div class="ctrl" id="pan-down">&#9660;</div>
             <div class="ctrl" id="pan-left">&#9664;</div>
@@ -87,7 +87,7 @@
             <div class="ctrl" id="zoom-in">&plus;</div>
             <div class="ctrl" id="zoom-out">&minus;</div>
             <div class="ctrl" id="fullscreen">&#x2922;</div>
-        </div>
+        </div>-->
     </div>
     <script>
         viewer = pannellum.viewer('panorama', {
@@ -113,7 +113,7 @@
                             "yaw": 0,
                             "type": "scene",
                             "text": "館內",
-                            "createTooltipArgs": "館內",
+/*                            "createTooltipArgs": "館內",*/
                             "sceneId": "Second"
                         },
 
@@ -147,18 +147,18 @@
                 }
             }
         });
-        function hotspot(hotSpotDiv, args) {
-            hotSpotDiv.classList.add('custom-tooltip');
-            var span = document.createElement('span');
-            span.innerHTML = args;
-            hotSpotDiv.appendChild(span);
-            span.style.width = span.scrollWidth - 20 + 'px';
-            span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
-            span.style.marginTop = -span.scrollHeight - 12 + 'px';
-        }
+        //function hotspot(hotSpotDiv, args) {
+        //    hotSpotDiv.classList.add('custom-tooltip');
+        //    var span = document.createElement('span');
+        //    span.innerHTML = args;
+        //    hotSpotDiv.appendChild(span);
+        //    span.style.width = span.scrollWidth - 20 + 'px';
+        //    span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
+        //    span.style.marginTop = -span.scrollHeight - 12 + 'px';
+        //}
     </script>
 
-    <script>
+    <!--<script>
         document.getElementById('pan-up').addEventListener('click', function (e) {
             viewer.setPitch(viewer.getPitch() + 10);
         });
@@ -179,7 +179,7 @@
         });
         document.getElementById('fullscreen').addEventListener('click', function (e) {
             viewer.toggleFullscreen();
-        });</script>
+        });</script>-->
 
 </body>
 </html>
